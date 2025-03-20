@@ -44,6 +44,66 @@ z-index: 2,
           font-size: 1.5rem;
           position: relative;
       }
+      .container {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            overflow: hidden;
+        }
+
+        .image-container {
+            display: flex;
+            width: 100%;
+        }
+
+        .image-container img {
+            height: auto;
+            border-radius: 8px;
+            flex-shrink: 0; 
+        }
+
+    
+        @media (max-width: 767px) {
+            .image-container {
+                overflow-x: scroll;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .image-container img {
+                scroll-snap-align: start;
+            }
+
+            .image-container img:first-child {
+                width: 80%; 
+                gap: 20px;
+                padding-right: 20px;
+            }
+
+            .image-container img:nth-child(2) {
+                width: 80%; 
+                object-fit: cover;
+                padding-right:20px ; 
+              
+            }
+
+            .image-container img:nth-child(3) {
+                width: 100%; 
+            }
+        }
+
+        /* Tablet and Larger Screens */
+        @media (min-width: 768px) {
+            .image-container {
+                overflow: hidden;
+                gap: 10px; 
+            }
+
+            .image-container img {
+                width: calc(33.33% - 7px); 
+            }
+        }
+
 
       /* Zoom effect on image hover */
       .slick-slide img {
@@ -205,16 +265,94 @@ z-index: 2,
         <button class="btn-getStarted">Get Started</button>
       </div>
     </div>
+    <h1 style="margin: 20px;">MENS</h1>
+    <h3 style="margin: 20px;">The GOTO SUMMER DRESS FOR MEN</h3>
+  <div class="shop-now">
+ 
+  <div class="product-card">
+    <img src="images/img1.jpg" alt="Product" class="image-first">
+    <img src="images/img2.jpg" alt="Product" class="image-second">
+  
+    <div class="info">
+      
+        <button>NEW ARRIVALS</button>
+    </div>
+    <div class="product-detail">
+   
+     <div class="product-info">
+      <h3>Men Shoes</h3>
+      <h3>$120.5</h3>
+     </div>
+   
+    </div>
+    
+   
+</div>
+<div class="product-card">
+  <img src="images/shop3.jpeg" alt="Product" class="image-first">
+  <img src="images/img2.jpg" alt="Product" class="image-second">
 
-    <div class="container">
-      <div class="image-container">
-          <img src="images/shop.jpg" >
-          <img src="images/shop1.jpg" >
-          <img src="images/shop3.jpeg" >
-      </div>
+  <div class="info">
+    
+      <button>NEW ARRIVALS</button>
   </div>
+  <div class="product-detail">
+  
+   <div class="product-info">
+    <h3>Men Shoes</h3>
+    <h3>$120.5</h3>
+   </div>
+ 
+  </div>
+  
+ 
+</div>
+<div class="product-card">
+  <img src="images/shop4.jpeg" alt="Product" class="image-first">
+  <img src="images/shop4.jpeg" alt="Product" class="image-second">
 
+  <div class="info">
+    
+      <button>NEW ARRIVALS</button>
+  </div>
+  <div class="product-detail">
+  
+   <div class="product-info">
+    <h3>Men Shoes</h3>
+    <h3>$120.5</h3>
+   </div>
+ 
+  </div>
+  
+ 
+</div>
+<div class="product-card">
+  <img src="images/img2.jpg" alt="Product" class="image-first">
+  <img src="images/shop2.jpg" alt="Product" class="image-second">
 
+  <div class="info">
+    
+      <button>NEW ARRIVALS</button>
+  </div>
+  <div class="product-detail">
+  
+   <div class="product-info">
+    <h3>Men Shoes</h3>
+    <h3>$120.5</h3>
+   </div>
+ 
+  </div>
+  
+ 
+</div>
+</div>
+<div class="container">
+  <div class="image-container">
+      <img src="images/shop.jpg" >
+      <img src="images/shop1.jpg" >
+      <img src="images/shop3.jpeg" >
+  </div>
+</div>
 
     <div class="call-to-action">
       <img class="call-to-action-img" src="images/three.jpeg">
@@ -284,8 +422,10 @@ z-index: 2,
   <div class="copyright">
     <h3>Copyright 2025.One Horn Beast</h3>
   </div>
+  
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <!-- Initialize Slick Slider with responsive settings -->
+   
   <script>
         $(document).ready(function () {
             $('.slider').slick({
@@ -329,6 +469,16 @@ z-index: 2,
         });
         
   </script>
+  
+
+<script>
+  // JavaScript can be used for additional interactivity if needed
+  // For example, adding a click event for the button
+  const addToCartButton = document.querySelector('.product-card .info button');
+  addToCartButton.addEventListener('click', () => {
+      alert('Product added to cart!');
+  });
+</script>
   <script>
     const imageContainer = document.querySelector('.image-container');
 
@@ -356,5 +506,6 @@ z-index: 2,
         isSwiping = false;
     });
 </script>
+<script src="javascript.js"></script>
 </body>
 </html>

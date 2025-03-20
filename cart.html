@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Smooch+Sans&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Smooch Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Product Container */
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+        }
+
+        .product-images {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+}
+
+        /* Thumbnail Images Section */
+        .thumbnail-images {
+    display: flex;
+    flex-wrap: wrap; /* Allow thumbnails to wrap */
+    gap: 10px; /* Space between thumbnails */
+    flex: 0 0 80px;
+    justify-content: flex-start; /* Ensure they align at the start */
+}
+.thumbnail-images img {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+        /* Main Image Container */
+        .main-image {
+            flex: 1;
+            max-width: 500px;
+            min-width: 200px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Zoom Effect on Hover */
+        .main-image:hover img {
+            transform: scale(1.2);
+        }
+
+        /* Product Details Section */
+        .product-details {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .product-details h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .product-details .price {
+            font-size: 22px;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        /* Star Ratings */
+        .star-ratings {
+            margin-bottom: 20px;
+        }
+
+        .star-ratings .stars {
+            color: #000;
+            font-size: 20px;
+        }
+
+        .star-ratings .rating-count {
+            color: #666;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        /* Color Options */
+        .color-options {
+            margin-bottom: 20px;
+        }
+
+        .color-options label {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .color-swatches {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .color-swatch {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #ddd;
+        }
+
+        .color-swatch.red {
+            background-color: #ff0000;
+        }
+
+        .color-swatch.blue {
+            background-color: #0000ff;
+        }
+
+        .color-swatch.green {
+            background-color: #00ff00;
+        }
+
+        .color-swatch.yellow {
+            background-color: #ffff00;
+        }
+
+        .color-swatch.selected {
+            border: 2px solid #000;
+        }
+
+        /* Size Options */
+        .size-options {
+            margin-bottom: 20px;
+        }
+
+        .size-options label {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .size-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .size-button {
+            padding: 10px 15px;
+            border: 1px solid #000;
+            background-color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #000;
+        }
+
+        .size-button.selected {
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Add to Cart Button */
+        .add-to-cart {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .add-to-cart:hover {
+            background-color: #333;
+        }
+
+        /* Highly Recommended Products Section */
+        .highly-recommended {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .highly-recommended h2 {
+            font-family: 'Smooch Sans', sans-serif;
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #000;
+        }
+
+        .highly-recommended-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .highly-recommended-product {
+            text-align: center;
+            width: 23%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .highly-recommended-product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .highly-recommended-product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+            overflow: hidden; /* Prevents the zoomed part of the image from overflowing */
+        }
+
+        /* Zoom effect for "Highly Recommended" Images */
+        .highly-recommended-product:hover img {
+            transform: scale(1.2); /* Zoom in effect */
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .product-container {
+                flex-direction: column;
+            }
+
+            .product-images {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .thumbnail-images {
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: center;
+            }
+
+            .main-image {
+                width: 100%;
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .you-might-also-like-grid,
+            .highly-recommended-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .you-might-also-like-product,
+            .highly-recommended-product {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-details h1 {
+                font-size: 20px;
+            }
+
+            .product-details .price {
+                font-size: 18px;
+            }
+
+            .star-ratings .stars {
+                font-size: 16px;
+            }
+
+            .size-button {
+                padding: 8px 12px;
+            }
+
+            .add-to-cart {
+                font-size: 14px;
+            }
+
+            .highly-recommended-product {
+                width: 90%;
+                margin-bottom: 20px;
+            }
+
+            .main-image img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <a href="#">Home</a> / <a href="#">Category</a> / <span>Product Name</span>
+    </div>
+
+    <!-- Product Container -->
+    <div class="product-container">
+        <!-- Product Images Section -->
+        <div class="product-images">
+            <!-- Thumbnail Images on the Left -->
+            <div class="thumbnail-images">
+                <img src="images/shop.jpg" alt="Product View 1">
+                <img src="images/shop1.jpg" alt="Product View 2">
+                <img src="images/shop2.jpg" alt="Product View 3">
+                <img src="images/shop3.jpeg" alt="Product View 4">
+            </div>
+
+            <!-- Main Image -->
+            <div class="main-image">
+                <img src="images/shop4.jpeg" alt="Main Product Image">
+            </div>
+        </div>
+
+        <!-- Product Details Section -->
+        <div class="product-details">
+            <h1>Product Name</h1>
+            <p class="price">$99.99</p>
+
+            <!-- Star Ratings -->
+            <div class="star-ratings">
+                <span class="stars">★★★★★</span>
+                <span class="rating-count">(4.5/5 based on 120 reviews)</span>
+            </div>
+
+            <p class="description">This is a detailed description of the product. It includes information about the materials, features, and benefits of the product.</p>
+
+            <!-- Color Options -->
+            <div class="color-options">
+                <label>Color:</label>
+                <div class="color-swatches">
+                    <div class="color-swatch red" data-color="red"></div>
+                    <div class="color-swatch blue" data-color="blue"></div>
+                    <div class="color-swatch green" data-color="green"></div>
+                    <div class="color-swatch yellow" data-color="yellow"></div>
+                </div>
+            </div>
+
+            <!-- Size Options -->
+            <div class="size-options">
+                <label>Size:</label>
+                <div class="size-buttons">
+                    <button class="size-button" data-size="S">S</button>
+                    <button class="size-button" data-size="M">M</button>
+                    <button class="size-button" data-size="L">L</button>
+                    <button class="size-button" data-size="XL">XL</button>
+                    <button class="size-button" data-size="XXL">XXL</button>
+                    <button class="size-button" data-size="XXXL">XXXL</button>
+                </div>
+            </div>
+
+            <!-- Add to Cart Button -->
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Highly Recommended Products Section -->
+    <div class="highly-recommended">
+        <h2>Highly Recommended Products</h2>
+        <div class="highly-recommended-grid">
+            <div class="highly-recommended-product">
+                <img src="images/img1.jpg" alt="Recommended Product 1">
+                <p>Highly Recommended Product 1</p>
+                <p class="price">$89.99</p>
+            </div>
+            <div class="highly-recommended-product">
+                <img src="images/img2.jpg" alt="Recommended Product 2">
+                <p>Highly Recommended Product 2</p>
+                <p class="price">$99.99</p>
+            </div>
+            <div class="highly-recommended-product">
+                <img src="images/shop3.jpeg" alt="Recommended Product 3">
+                <p>Highly Recommended Product 3</p>
+                <p class="price">$109.99</p>
+            </div>
+            <div class="highly-recommended-product">
+                <img src="images/shop2.jpg" alt="Recommended Product 4">
+                <p>Highly Recommended Product 4</p>
+                <p class="price">$119.99</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
