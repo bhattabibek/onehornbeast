@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <title>One Horn Beast</title>
+    <style>
+    
+
+  /* Container for the slider */
+  .product-slider {
+    position: relative;
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 10px;
+    scroll-snap-type: x mandatory; /* Make the products snap into place */
+  }
+
+  /* Hides the scrollbar */
+  .product-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Individual product card */
+  .product-container > div {
+    flex-shrink: 0;
+    width: 250px;
+    scroll-snap-align: start;
+  }
+
+  /* Arrows positioning */
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  /* Left arrow */
+  .arrow-left {
+    left: 10px;
+  }
+
+  /* Right arrow */
+  .arrow-right {
+    right: 10px;
+  }
+
+
+
+
+
+      .slider {
+          width: 100%;
+          margin: 0 auto;
+      }
+    
+   
+      .slick-slide {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 95vh;
+          color: white;
+          font-size: 1rem;
+          position: relative;
+      }
+      .container {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            overflow: hidden;
+        }
+
+        .image-container {
+            display: flex;
+            width: 100%;
+        }
+
+        .image-container img {
+            height: auto;
+            border-radius: 8px;
+            flex-shrink: 0; 
+            
+        }
+
+    
+        @media (max-width: 767px) {
+            .image-container {
+                overflow-x: scroll;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .image-container img {
+                scroll-snap-align: start;
+            }
+
+            .image-container img:first-child {
+                width: 80%; 
+                gap: 20px;
+                padding-right: 20px;
+            }
+
+            .image-container img:nth-child(2) {
+                width: 80%; 
+                object-fit: cover;
+                padding-right:20px ; 
+              
+            }
+
+            .image-container img:nth-child(3) {
+                width: 100%; 
+            }
+        }
+
+     
+        @media (min-width: 768px) {
+            .image-container {
+                overflow: hidden;
+                gap: 10px; 
+            }
+
+            .image-container img {
+                width: calc(33.33% - 7px); 
+            }
+        }
+
+
+      .slick-slide img {
+          width: 100%;
+          height: 95%;
+          object-fit: cover;
+          transition: transform 0.5s ease; 
+      }
+
+      .slick-slide:hover img {
+          transform: scale(1.1); 
+
+      }
+      .slide-text {
+          position: absolute;
+          bottom: 150px;
+          left: 20px;
+          color: white;
+          font-size: 4.5rem;
+          font-weight: bold;
+          text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* Add shadow to make text stand out */
+      }
+
+   
+.mobile-menu {
+    display: none;
+  
+}
+
+
+.mobile-menu.active {
+    display: block; 
+}
+      .slick-prev, .slick-next {
+          color: #fff;
+          font-size: 2rem;
+      }
+
+      .slick-prev {
+          left: -30px; 
+      }
+
+      .slick-next {
+          right: -30px; 
+      }
+
+    
+      .slick-dots li button:before {
+          color: #f39c12; 
+      }
+
+      .container {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            overflow: hidden;
+        }
+
+        .image-container {
+            display: flex;
+            width: 100%;
+        }
+
+        .image-container img {
+            height: auto;
+            border-radius: 8px;
+            flex-shrink: 0; 
+        }
+
+    
+        @media (max-width: 767px) {
+            .image-container {
+                overflow-x: scroll;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .image-container img {
+                scroll-snap-align: start;
+            }
+
+            .image-container img:first-child {
+                width: 80%; 
+                gap: 20px;
+                padding-right: 20px;
+            }
+
+            .image-container img:nth-child(2) {
+                width: 80%; 
+                object-fit: cover;
+                padding-right:20px ; 
+              
+            }
+
+            .image-container img:nth-child(3) {
+                width: 100%; 
+            }
+        }
+
+        /* Tablet and Larger Screens */
+        @media (min-width: 768px) {
+            .image-container {
+                overflow: hidden;
+                gap: 10px; 
+            }
+
+            .image-container img {
+                width: calc(33.33% - 7px); 
+            }
+        }
+
+
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+}
+
+.hamburger-menu .bar {
+    width: 100%;
+    height: 4px;
+    background-color: #333;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex; 
+    }
+    
+    
+    .mobile-menu {
+        display: none; 
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: white;
+        z-index: 999;
+        padding: 20px;
+        overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+        display: block; 
+    }
+
+    .mobile-nav-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile-nav-links li {
+        margin: 15px 0;
+    }
+
+    .mobile-nav-links li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+    }
+}
+
+
+   
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container input {
+            padding: 12px 20px 12px 40px; 
+            width: 300px;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            background-color: #f8f8f8;
+            transition: width 0.3s ease; 
+        }
+
+        .search-icon {
+            position: absolute;
+            top: 50%;
+            right: 12px; 
+            transform: translateY(-59%); 
+           
+            color: rgb(5, 5, 5);
+            padding: 8px;
+            border-radius: 50%;
+            font-size: 20px;
+        }
+
+     
+        .nav-icons {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .icon {
+            font-size: 28px;
+            cursor: pointer;
+            color: #333;
+            transition: color 0.3s;
+        }
+        .fa-thin i{
+          color: black;
+        }
+        .icon:hover {
+            color: #007bff; 
+        }
+
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .hamburger-menu span {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+     
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -220px;
+            width: 220px;
+            height: 100%;
+            background-color: #000;
+            color: white;
+            transition: 0.3s;
+            padding-top: 60px;
+            z-index: 999;
+        }
+
+        .side-menu.active {
+            left: 0;
+        }
+
+        .side-menu-header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .close-btn:hover {
+            transform: scale(1.2); 
+        }
+
+        .side-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .side-menu ul li {
+            padding: 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .side-menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+      
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .search-container input {
+                width: 250px;
+                margin-bottom: 10px;
+            }
+
+            .search-icon {
+                right: 10px;
+            }
+
+            .nav-icons {
+                display: flex;
+                gap: 15px;
+                position: absolute;
+                right: 20px;
+            }
+
+            .nav-icons .icon {
+                font-size: 26px;
+            }
+
+            .hamburger-menu {
+                display: flex;
+            }
+
+            .side-menu {
+                top: 0;
+                left: -220px;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container-news-ticker">
+        <div class="ticker">
+          <p>Offer for a limited Time 50% off on all products</p>
+          <p>Buy Your Favorite Combo for half the price</p>
+          <p>Shop Now to get 20% off on all Accessories</p>
+          <p>Use Code BEAST40 to get 20% off on all Accessories</p>
+        </div>
+      </div>
+      <nav class="navbar">
+        <div class="nav-links" style="display: flex;flex-direction: row;gap: 28px;">
+          <h2>Men</h2>
+          <h2>Accessories</h2>
+          <h2>Women</h2>
+        </div>
+        <div class="nav-bar-menu">
+          <div class="hamburger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="logo">
+            <img src="images/mainlogo.png" alt="Logo">
+          </div>
+          <div class="search">
+            <i style="border: none; font-size: 22px;" class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <div>
+            <i style="font-size: 22px;" class="fa-regular fa-user"></i>
+          </div>
+          <div>
+            <i style="font-size: 22px;" class="fa-regular fa-heart"></i>
+          </div>
+        </div>
+      </nav>
+      <div class="side-menu" id="side-menu">
+        <div class="side-menu-header">
+          <button class="close-btn" onclick="closeMenu()">×</button>
+        </div>
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">Shop</a>
+          </li>
+          <li>
+            <a href="#">Mens</a>
+          </li>
+          <li>
+            <a href="#">Accessories</a>
+          </li>
+          <li>
+            <a href="#">Womens</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <div class="slider">
+      <div class="slider-text">
+        <img class="gradient" src="images/one.jpeg" alt="Slide 1">
+        <div class="slide-text">
+          <h5>WELCOME TO ONE HORN BEAST</h5>
+          <h6>Walk Alone, Walk Strong ,Walk Bigger  Unleash Your Inner Beast</h6>
+          <button class="btn-getStarted">Get Started</button>
+        </div>
+      </div>
+      <div>
+        <img src="images/two.jpeg" alt="Slide 2">
+        <div class="slide-text">
+          <h6>One Horn Beast Shop Has Everything You Need</h6>
+          <button class="btn-getStarted">Get Started</button>
+        </div>
+      </div>
+      <div>
+        <img src="images/four.jpeg" alt="Slide 4">
+        <div class="slide-text">
+          <h6>We offer One to one Training</h6>
+          <button class="btn-getStarted">Get Started</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="image-section">
+    <div>
+      <img src="images/4.jpeg">
+      <h2 style="padding-top: 95px;">Mens Collection</h2>
+    </div>
+    <div>
+      <img src="images/imgtwo.jpeg">
+      <h2 style="padding-top: 95px;">Accesories</h2>
+    </div>
+    <div>
+      <img src="images/imgthree.jpeg">
+      <h2 style="padding-top: 95px;">Womens Collection</h2>
+    </div>
+  </div>
+  <div class="intro-section">
+    
+    <img src="images/three.jpeg">
+    <div class="imageandtext">
+      <h2>Welcome to One Horn Beast</h2>
+      <p>
+        We believe in the power of self-reliance and resilience, lessons that the world taught us during the unprecedented times of Covid-19.
+        <br>
+        This period of isolation reminded us of a fundamental truth: we are born alone and, ultimately, we face our greatest challenges alone.
+        <br>
+        Our journey began with a commitment to self-care and personal growth. In a world where physical connection was restricted,
+        <br>
+        we discovered the importance of nurturing our bodies and minds. We embraced the idea that to uplift others, we must first empower ourselves.
+      </p>
+      <button class="btn-getStarted">Get Started</button>
+    </div>
+  </div>
+  <div style="padding-left: 10px;padding-top: 45px;">
+    <h1 style="text-align: center; text-align: left;">Womens Collection</h1>
+    <h2 style="text-align: center; font-weight: 200; text-decoration: underline; text-align: left;">See All</h2>
+  </div>
+ 
+  <div class="product-flex">
+    <div class="product-slider">
+      <!-- Left Arrow -->
+      <div class="arrow arrow-left">&#8592;</div>
+      <!-- Product Container (Scrollable Area) -->
+      <div class="product-container" style="display: flex; flex-direction: row; justify-content: space-evenly; gap: 20px;">
+        <!-- Product Cards -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/img1.jpg" class="hover-img">
+            <img src="images/img2.jpg" class="main-img">
+            <div class="wishlist">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <!-- Size Options (Visible at the bottom of the image when hovered) -->
+            <div class="size-options">
+              <span class="size-box">S</span>
+              <span class="size-box">M</span>
+              <span class="size-box">L</span>
+              <span class="size-box">XL</span>
+              <span class="size-box">XXL</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <h2>Leggins</h2>
+            <p class="product-price">$30.99</p>
+          </div>
+          <div class="product-rating">
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9734;</span>
+          </div>
+          <!-- Add to Cart Button -->
+          <div class="product-actions">
+            <button class="add-to-cart">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/img2.jpg" class="hover-img">
+            <img src="images/imgthree.jpeg" class="main-img">
+            <div class="wishlist">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <!-- Size Options (Visible at the bottom of the image when hovered) -->
+            <div class="size-options">
+              <span class="size-box">S</span>
+              <span class="size-box">M</span>
+              <span class="size-box">L</span>
+              <span class="size-box">XL</span>
+              <span class="size-box">XXL</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <h2>GYM Wear</h2>
+            <p class="product-price">$30.99</p>
+          </div>
+          <div class="product-rating">
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9734;</span>
+          </div>
+          <!-- Add to Cart Button -->
+          <div class="product-actions">
+            <button class="add-to-cart">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/shop.jpg" class="hover-img">
+            <img src="images/shop2.jpg" class="main-img">
+            <div class="wishlist">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <!-- Size Options (Visible at the bottom of the image when hovered) -->
+            <div class="size-options">
+              <span class="size-box">S</span>
+              <span class="size-box">M</span>
+              <span class="size-box">L</span>
+              <span class="size-box">XL</span>
+              <span class="size-box">XXL</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <h2>Leggins</h2>
+            <p class="product-price">$30.99</p>
+          </div>
+          <div class="product-rating">
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9734;</span>
+          </div>
+          <!-- Add to Cart Button -->
+          <div class="product-actions">
+            <button class="add-to-cart">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+        <div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="images/shop2.jpg" class="hover-img">
+              <img src="images/shop1.jpg" class="main-img">
+              <div class="wishlist">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+              <!-- Size Options (Visible at the bottom of the image when hovered) -->
+              <div class="size-options">
+                <span class="size-box">S</span>
+                <span class="size-box">M</span>
+                <span class="size-box">L</span>
+                <span class="size-box">XL</span>
+                <span class="size-box">XXL</span>
+              </div>
+            </div>
+            <div class="product-info">
+              <h2>Leggins</h2>
+              <p class="product-price">$30.99</p>
+            </div>
+            <div class="product-rating">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9734;</span>
+            </div>
+            <!-- Add to Cart Button -->
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class="fas fa-cart-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/shop.jpg" class="hover-img">
+            <img src="images/model.jpeg" class="main-img">
+            <div class="wishlist">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <!-- Size Options (Visible at the bottom of the image when hovered) -->
+            <div class="size-options">
+              <span class="size-box">S</span>
+              <span class="size-box">M</span>
+              <span class="size-box">L</span>
+              <span class="size-box">XL</span>
+              <span class="size-box">XXL</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <h2>Leggins</h2>
+            <p class="product-price">$30.99</p>
+          </div>
+          <div class="product-rating">
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9734;</span>
+          </div>
+          <!-- Add to Cart Button -->
+          <div class="product-actions">
+            <button class="add-to-cart">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Right Arrow -->
+      <div class="arrow arrow-right">&#8594;</div>
+    </div>
+  </div>
+  <div>
+    <h1 style="text-align: center; padding-top: 20px;text-align: left;padding-left: 50px;">New Drop</h1>
+    <h2 style="text-align: center; font-weight: 200;text-decoration: underline; text-align: left;padding-left: 50px;margin-top: -10px; margin-bottom: 10px;">See All</h2>
+  </div>
+  <div class="new-drop-section">
+    <div>
+      <img width="200px" height="150px" src="images/model.jpeg">
+    </div>
+    <div>
+      <img width="200px" height="150px" src="images/2.jpeg">
+    </div>
+    <div>
+      <img class="models" src="images/girlmodel.jpeg">
+    </div>
+  </div>
+  <div style="padding-left: 10px;padding-top: 45px; text-align: left;">
+    <h1>Mens Collection</h1>
+    <h2 style="font-weight: 200; text-decoration: underline;">See All</h2>
+  </div>
+  <div class="product-flex">
+    <div class="product-slider">
+      <!-- Left Arrow -->
+      <div class="arrow arrow-left">&#8592;</div>
+      <!-- Product Container (Scrollable Area) -->
+      <div class="product-container" style="display: flex; flex-direction: row; justify-content: space-evenly; gap: 20px;">
+        <!-- Product Cards -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/shop3.jpeg" class="hover-img">
+            <img src="images/shop4.jpeg" class="main-img">
+            <div class="wishlist">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <!-- Size Options (Visible at the bottom of the image when hovered) -->
+            <div class="size-options">
+              <span class="size-box">S</span>
+              <span class="size-box">M</span>
+              <span class="size-box">L</span>
+              <span class="size-box">XL</span>
+              <span class="size-box">XXL</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <h2>Leggins</h2>
+            <p class="product-price">$30.99</p>
+          </div>
+          <div class="product-rating">
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9734;</span>
+          </div>
+          <!-- Add to Cart Button -->
+          <div class="product-actions">
+            <button class="add-to-cart">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/4.jpeg" class="hover-img">
+            <img src="images/3.jpeg" class="main-img">
+            <div class="wishlist">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <!-- Size Options (Visible at the bottom of the image when hovered) -->
+            <div class="size-options">
+              <span class="size-box">S</span>
+              <span class="size-box">M</span>
+              <span class="size-box">L</span>
+              <span class="size-box">XL</span>
+              <span class="size-box">XXL</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <h2>GYM Wear</h2>
+            <p class="product-price">$30.99</p>
+          </div>
+          <div class="product-rating">
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9734;</span>
+          </div>
+          <!-- Add to Cart Button -->
+          <div class="product-actions">
+            <button class="add-to-cart">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/3.jpeg" class="hover-img">
+            <img src="images/shop3.jpeg" class="main-img">
+            <div class="wishlist">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <!-- Size Options (Visible at the bottom of the image when hovered) -->
+            <div class="size-options">
+              <span class="size-box">S</span>
+              <span class="size-box">M</span>
+              <span class="size-box">L</span>
+              <span class="size-box">XL</span>
+              <span class="size-box">XXL</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <h2>Leggins</h2>
+            <p class="product-price">$30.99</p>
+          </div>
+          <div class="product-rating">
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9734;</span>
+          </div>
+          <!-- Add to Cart Button -->
+          <div class="product-actions">
+            <button class="add-to-cart">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+        <div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="images/shop3.jpeg" class="hover-img">
+              <img src="images/4.jpeg" class="main-img">
+              <div class="wishlist">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+              <!-- Size Options (Visible at the bottom of the image when hovered) -->
+              <div class="size-options">
+                <span class="size-box">S</span>
+                <span class="size-box">M</span>
+                <span class="size-box">L</span>
+                <span class="size-box">XL</span>
+                <span class="size-box">XXL</span>
+              </div>
+            </div>
+            <div class="product-info">
+              <h2>Leggins</h2>
+              <p class="product-price">$30.99</p>
+            </div>
+            <div class="product-rating">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9734;</span>
+            </div>
+            <!-- Add to Cart Button -->
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class="fas fa-cart-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/shop.jpg" class="hover-img">
+            <img src="images/models.jpeg" class="main-img">
+            <div class="wishlist">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <!-- Size Options (Visible at the bottom of the image when hovered) -->
+            <div class="size-options">
+              <span class="size-box">S</span>
+              <span class="size-box">M</span>
+              <span class="size-box">L</span>
+              <span class="size-box">XL</span>
+              <span class="size-box">XXL</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <h2>Leggins</h2>
+            <p class="product-price">$30.99</p>
+          </div>
+          <div class="product-rating">
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9734;</span>
+          </div>
+          <!-- Add to Cart Button -->
+          <div class="product-actions">
+            <button class="add-to-cart">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Right Arrow -->
+      <div class="arrow arrow-right">&#8594;</div>
+    </div>
+  </div>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <div class="categories">
+    <div>
+      <h2>Mens Clothing</h2>
+      <h3>Tank Tops</h3>
+      <h3>Shorts</h3>
+      <h3>Vest</h3>
+      <h3>Tank Shorts</h3>
+      <h3>Mens Short</h3>
+    </div>
+    <div>
+      <h2>Womens Clothing</h2>
+      <h3>Mens Clothing</h3>
+      <h3>Tank Tops</h3>
+      <h3>Shorts</h3>
+      <h3>Vest</h3>
+      <h3>Tank Shorts</h3>
+      <h3>Mens Short</h3>
+    </div>
+    <div>
+      <h2>Mens Joggers</h2>
+      <h3>Mens Clothing</h3>
+      <h3>Tank Tops</h3>
+      <h3>Shorts</h3>
+      <h3>Vest</h3>
+      <h3>Tank Shorts</h3>
+      <h3>Mens Short</h3>
+    </div>
+    <div>
+      <h2>Mens Tanktops</h2>
+      <h3>Mens Clothing</h3>
+      <h3>Tank Tops</h3>
+      <h3>Shorts</h3>
+      <h3>Vest</h3>
+      <h3>Tank Shorts</h3>
+      <h3>Mens Short</h3>
+    </div>
+  </div>
+  <div class="parallax">
+    <div class="product-cta">
+      <h3>Our New Summer Collection is Out Now.</h3>
+      <button class="cta-btn">SHOP NOW</button>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section about">
+        <div class="logo">
+          <img width="180px" src="images/mainlogo.png" alt="Logo">
+        </div>
+      </div>
+      <div class="footer-section links">
+        <h4>MENS PRODUCTS</h4>
+        <ul>
+          <li>
+            <a href="#">Shorts</a>
+          </li>
+          <li>
+            <a href="#">Stingers</a>
+          </li>
+          <li>
+            <a href="#">Tank top</a>
+          </li>
+          <li>
+            <a href="#">Vest</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-section links">
+        <h4>WOMENS PRODUCTS</h4>
+        <ul>
+          <li>
+            <a href="#">Leggins</a>
+          </li>
+          <li>
+            <a href="#">Outer Wear</a>
+          </li>
+          <li>
+            <a href="#">Gloves</a>
+          </li>
+          <li>
+            <a href="#">shoes</a>
+          </li>
+        </ul>
+      </div>
+      <!-- Social Media -->
+      <div class="footer-section social">
+        <h4>Follow Us</h4>
+        <ul>
+          <li>
+            <a href="#" class="facebook">Facebook</a>
+          </li>
+          <li>
+            <a href="#" class="twitter">Twitter</a>
+          </li>
+          <li>
+            <a href="#" class="instagram">Instagram</a>
+          </li>
+          <li>
+            <a href="#" class="linkedin">LinkedIn</a>
+          </li>
+        </ul>
+      </div>
+      <!-- Contact Info -->
+      <div class="footer-section contact">
+        <h4>Contact</h4>
+        <ul>
+          <li>+577 9827 3940</li>
+          <li>onehornbeast@gmail.com</li>
+          <li>123 Hongkong, Honkong City</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 One Horn Beast. All Rights Reserved</p>
+    </div>
+  </footer>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script>
+        $(document).ready(function () {
+            $('.slider').slick({
+                infinite: true,  
+                slidesToShow: 1, 
+                slidesToScroll: 1, 
+                arrows: true, 
+                dots: true,
+                autoplay: true, 
+                autoplaySpeed: 2000, 
+                responsive: [
+                    {
+                        breakpoint: 1024, 
+                        settings: {
+                            slidesToShow: 1, 
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 768, 
+                        settings: {
+                            slidesToShow: 1, 
+                            slidesToScroll: 1,
+                            arrows: false, 
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 480, 
+                        settings: {
+                            slidesToShow: 1, 
+                            slidesToScroll: 1,
+                            arrows: true, 
+                            dots: true
+                        }
+                    }
+                ]
+            });
+        });
+  </script>
+  <script>
+    // Function to toggle side menu visibility
+    function toggleMenu() {
+        document.getElementById("side-menu").classList.add("active");
+    }
+
+    // Function to close side menu
+    function closeMenu() {
+        document.getElementById("side-menu").classList.remove("active");
+    }
+  </script>
+  
+  <script>
+// Get the hamburger menu and mobile menu elements
+const hamburgerMenu = document.getElementById('hamburger-menu');
+const mobileMenu = document.getElementById('mobile-menu');
+
+// Add click event to toggle mobile menu
+hamburgerMenu.addEventListener('click', () => {
+  mobileMenu.classList.toggle('active');
+});
+  </script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script>
+    function toggleMenu() {
+        document.getElementById("side-menu").classList.toggle("active");
+    }
+  </script>
+  
+  <script>
+  const productContainer = document.querySelectorAll('.product-container');
+
+  const leftArrow = document.querySelectorAll('.arrow-left');
+  console.log(leftArrow)
+  const rightArrow = document.querySelectorAll('.arrow-right');
+  console.log(rightArrow)
+
+  const scrollAmount = 270; // Adjust the width as necessary
+
+  // Scroll left when left arrow is clicked
+  leftArrow.forEach((element)=>{
+element.addEventListener('click', () => {
+  console.log("hi")
+    productContainer.forEach((element)=>{
+     element.scrollBy({
+      left: -scrollAmount,
+      behavior: 'smooth',
+    }); 
+    })
+  });
+  })
+
+  // Scroll right when right arrow is clicked
+  rightArrow.forEach((element)=>{
+element.addEventListener('click', () => {
+  console.log("hi")
+    productContainer.forEach((element)=>{
+     element.scrollBy({
+      left: +scrollAmount,
+      behavior: 'smooth',
+    }); 
+    })
+  });
+  })
+
+    
+  </script>
+</body>
+</html>
